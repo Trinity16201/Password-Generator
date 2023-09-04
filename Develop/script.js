@@ -36,6 +36,13 @@ function generatePassword() {
   if(upperconfirm){
     emptycontainer+=upperconfirm
   }
+  if(lowerconfirm){
+    emptycontainer+=lowerconfirm
+  }
+  if(numberconfirm){
+    emptycontainer+=numberconfirm
+  }
+  
   //need to fix : var i=0 i<length i++
   return finalpassword;
 }
