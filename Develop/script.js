@@ -7,7 +7,7 @@ var specialcharacter = "!@#$%^&*"
 var uppercase = "QWERTYUIOPASDFGHJKLZXCVBNM"
 var lowercase = "qwertyuiopasdfghjklzxcvbnm"
 var numbers = "1234567890"
-var emptycontainer =""
+var emptycontainer = ""
 
 function generatePassword() {
   var length = window.prompt("Please enter the length that you want for your password:")
@@ -17,34 +17,35 @@ function generatePassword() {
     length = window.prompt("Please enter a number 8-128")
     lengthvalid = validatelength(length);
   }
-  //window.prompt("Thank you for your input")
-  //window.prompt(length)
-  var specialconfirm= window.confirm ("Do you want a special character?")
-  var upperconfirm= window.confirm ("Do you want an uppercase letter?")
-  var lowerconfirm= window.confirm ("Do you want a lowercase letter?")
-  var numberconfirm= window.confirm ("Do you want a number?")
-  while (!specialconfirm && !upperconfirm && !lowerconfirm && !numberconfirm){
+  var specialconfirm = window.confirm("Do you want a special character?")
+  var upperconfirm = window.confirm("Do you want an uppercase letter?")
+  var lowerconfirm = window.confirm("Do you want a lowercase letter?")
+  var numberconfirm = window.confirm("Do you want a number?")
+  while (!specialconfirm && !upperconfirm && !lowerconfirm && !numberconfirm) {
     window.alert("Choose at least one character")
-    specialconfirm= window.confirm ("Do you want a special character?")
-    upperconfirm= window.confirm ("Do you want an uppercase letter?")
-    lowerconfirm= window.confirm ("Do you want a lowercase letter?")
-    numberconfirm= window.confirm ("Do you want a number?")
+    specialconfirm = window.confirm("Do you want a special character?")
+    upperconfirm = window.confirm("Do you want an uppercase letter?")
+    lowerconfirm = window.confirm("Do you want a lowercase letter?")
+    numberconfirm = window.confirm("Do you want a number?")
   }
-  if(specialconfirm){
-    emptycontainer +=specialcharacter
+  if (specialconfirm) {
+    emptycontainer += specialcharacter
   }
-  if(upperconfirm){
-    emptycontainer+=upperconfirm
+  if (upperconfirm) {
+    emptycontainer += upperconfirm
   }
-  if(lowerconfirm){
-    emptycontainer+=lowerconfirm
+  if (lowerconfirm) {
+    emptycontainer += lowerconfirm
   }
-  if(numberconfirm){
-    emptycontainer+=numberconfirm
+  if (numberconfirm) {
+    emptycontainer += numberconfirm
   }
-  
-  //need to fix : var i=0 i<length i++
-  return finalpassword;
+  var characterset= "specialcharacter"+"uppercase"+"lowercase"+"length"
+  var finalPassword = "";
+  for (let i = 0; i <length; i++){
+      finalPassword += characterset.charAt(Math.floor(Math.random() * characterset.length));
+  }
+  return finalPassword;
 }
 function writePassword() {
   var password = generatePassword();
@@ -55,10 +56,12 @@ function writePassword() {
 }
 function validatelength(length) {
   length = parseInt(length)
+
   var inrange = length > 7 && 129 > length;
   var isInt = Number.isInteger(length);
+  for (let i = 0; i < validatelength.length; i++) {
+  }
   return (inrange && isInt)
 }
 
-// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
