@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 var specialcharacter = "!@#$%^&*"
 var uppercase = "QWERTYUIOPASDFGHJKLZXCVBNM"
 var lowercase = "qwertyuiopasdfghjklzxcvbnm"
-var numbers = "123456789"
+var numbers = "1234567890"
 
 function generatePassword() {
   var length = window.prompt("Please enter the length that you want for your password:")
@@ -25,7 +25,7 @@ function generatePassword() {
     lowerconfirm = window.confirm("Do you want a lowercase letter?")
     numberconfirm = window.confirm("Do you want a number?")
   }
-  var characterset = ""
+  var characterset=""
   if (specialconfirm) {
     characterset += specialcharacter
   }
@@ -38,9 +38,10 @@ function generatePassword() {
   if (numberconfirm) {
     characterset += numbers
   }
+ 
   var finalPassword = "";
-  for (let i = 0; i < length; i++) {
-    finalPassword += characterset.charAt(Math.floor(Math.random() * characterset.length));
+  for (let i = 0; i <length; i++){
+      finalPassword += characterset.charAt(Math.floor(Math.random() * characterset.length));
   }
   return finalPassword;
 }
